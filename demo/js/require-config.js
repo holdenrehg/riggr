@@ -6,6 +6,7 @@ requirejs.config({
     'jquery': '../../src/lib/jquery/dist/jquery',
     'riggr': '../../src/riggr',
     'router': '../../src/router',
+    'metric': '../../src/metric',
     'observer': '../../src/observer',
     'request': '../../src/request',
     'store': '../../src/store',

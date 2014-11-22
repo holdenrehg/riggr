@@ -5,13 +5,13 @@
 // under the MIT license. This notice must remain intact.
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['router', 'observer', 'knockout', 'jquery'], factory);
+    define(['router', 'observer', 'knockout', 'jquery', 'metric'], factory);
   } else if (typeof exports === 'object') {
-    module.exports = factory(require('router'), require('observer'), require('knockout'), require('jquery'));
+    module.exports = factory(require('router'), require('observer'), require('knockout'), require('jquery'), require('metric'));
   } else {
-    root.riggr = factory(root.router, root.observer, root.ko, root.$);
+    root.riggr = factory(root.router, root.observer, root.ko, root.$, root.metric);
   }
-}(this, function (router, observer, ko) {
+}(this, function (router, observer, ko, $, metric) {
 
   // Base vars, defaults
   var count = 0;
@@ -90,6 +90,7 @@
       // Fire load
       if (load) {
         controller.load.apply(controller, args);
+        metric.view.load(controller);
       }
       // Publish onRoute
       observer.publish('onRoute');

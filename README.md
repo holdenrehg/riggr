@@ -19,6 +19,7 @@ Set of utils for building web app's using [RequireJS](http://requirejs.org/),
 * [IndexedDB](#indexed)
 * [Validation](#validation)
 * [Dates](#dates)
+* [Metrics](#metrics)
 
 ## Usage
 
@@ -643,6 +644,45 @@ presets: {
   isoDateTime: 'yyyy-mm-dd\'A\'HH:ii:ss',
   isoUtcDateTime: 'UTC:yyyy-mm-dd\'A\'HH:ii:ss\'e\''
 }
+```
+
+### Metrics
+
+The `{riggr-path}/metric.js` file provides an abstraction for monitoring events. Controllers
+using this must explicitly pass it in using `define`.
+
+#### Watch:
+
+```javascript
+
+// record metrics on all click events on body
+metric.watch('click', 'body');
+
+// send extra data to metric server
+metric.watch('hover', '#button1', {
+
+  foo: 'bar'
+
+});
+
+```
+
+#### Unwatch:
+
+```javascript
+
+var id = metric.watch('click', '#div1');
+
+metric.unwatch(id);
+
+```
+
+#### Metric custom binding:
+
+```html
+
+<div data-bind="metric: 'click'"></div>
+
 ```
 
 ## License

@@ -5,13 +5,13 @@
 // under the MIT license. This notice must remain intact.
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
-    define([], factory);
+    define(['metric'], factory);
   } else if (typeof exports === 'object') {
-    module.exports = factory();
+    module.exports = factory(require('metric'));
   } else {
-    root.router = factory();
+    root.router = factory(root.metric);
   }
-}(this, function () {
+}(this, function (metric) {
 
   // Router object
   var Router = function () {
@@ -98,6 +98,8 @@
     // Get current route and unload
     if (prevRoute && typeof prevRoute.unload === 'function') {
       prevRoute.unload.apply(this);
+    } else if (prevRoute) {
+      metric.view.unload();
     }
 
     // Check for beforeAppRoute

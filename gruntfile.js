@@ -43,14 +43,25 @@ module.exports = function (grunt) {
       }
     },
 
-    // Copy libs
     copy: {
+
+      // Copy Libs
       libs: {
         files: [{
           expand: true,
           cwd: 'src/lib/',
           src: ['**/*'],
           dest: 'dist/lib/'
+        }]
+      },
+
+      // Copy Bindings
+      bindings: {
+        files: [{
+          expand: true,
+          cwd: 'src/bindings',
+          src: ['**/*'],
+          dest: 'dist/bindings/'
         }]
       }
     }
