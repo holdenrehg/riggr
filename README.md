@@ -651,6 +651,28 @@ presets: {
 The `{riggr-path}/metric.js` file provides an abstraction for monitoring events. Controllers
 using this must explicitly pass it in using `define`.
 
+#### Setup:
+
+The metric publish handler can be overridden in main.js.
+
+```javascript
+require(['require-config'], function () {
+  require([
+    'riggr',
+    'controllers/app',
+  ], function (rigg, app) {
+
+    // Set the metric helper to handle event callbacks
+    app.metric = function(e) {
+      console.log(e);
+    };
+    
+    rigg(app);
+
+  });
+});
+```
+
 #### Watch:
 
 ```javascript

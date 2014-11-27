@@ -16,6 +16,10 @@ require(['require-config'], function () {
       views: '../views',
       libs: 'libs'
     };
+    // Set metric handler
+    app.metric = function(e) {
+      console.log(e);
+    };
     
     // Initialize app
     rigg(app);

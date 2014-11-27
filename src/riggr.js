@@ -256,6 +256,11 @@
       paths = app.paths;
     }
 
+    // Check for metric override
+    if (app.hasOwnProperty('metric')) {
+      metric.publish = app.metric;
+    }
+
     // Check for app-level beforeRoute
     if (app.hasOwnProperty('beforeRoute')) {
       beforeRoute = app.beforeRoute.bind(app);
