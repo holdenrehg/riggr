@@ -4,11 +4,13 @@ define([
 ], function (ko, metric) {
 
   ko.bindingHandlers.metric = {
-    update: function (element, valueAccessor) {
-      var event = ko.unwrap(valueAccessor());
-      
-      if (event) {
-        metric.watch(event, element);
+    init: function (element, valueAccessor) {
+      var options = valueAccessor();
+
+      if (options) {
+        metric.watch(options.event, element, {
+          tag: options.name
+        });
       }
     }
   };

@@ -215,9 +215,9 @@
     });
   };
 
-  // Load the main app controller and view
+  // Load the main app controller, view, and bindings
   var loadApp = function () {
-    require([paths.controllers + '/app', 'text!' + paths.views + '/app.html'], function (app, appView) {
+    require([paths.controllers + '/app', 'text!' + paths.views + '/app.html', 'bindings/metric'], function (app, appView) {
       // Load view into main
       $('#' + appContainer).html(appView);
       // Apply app bindings

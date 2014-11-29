@@ -703,7 +703,7 @@ metric.unwatch(id);
 
 ```html
 
-<div data-bind="metric: 'click'"></div>
+<div data-bind="metric: { event: 'click', name: 'tag' }"></div>
 
 ```
 

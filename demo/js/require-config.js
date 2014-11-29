@@ -7,6 +7,7 @@ requirejs.config({
     'riggr': '../../src/riggr',
     'router': '../../src/router',
     'metric': '../../src/metric',
+    'bindings': '../../src/bindings',
     'observer': '../../src/observer',
     'request': '../../src/request',
     'store': '../../src/store',

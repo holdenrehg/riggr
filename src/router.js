@@ -98,7 +98,10 @@
     // Get current route and unload
     if (prevRoute && typeof prevRoute.unload === 'function') {
       prevRoute.unload.apply(this);
-    } else if (prevRoute) {
+    }
+
+    // Unload view from metric helper
+    if (prevRoute) {
       metric.view.unload();
     }
 
