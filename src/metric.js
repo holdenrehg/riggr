@@ -125,8 +125,8 @@
             secondsWatched = ((stop - view.start) / 1000.0);
 
           metric.publish(new MetricEvent('unload', undefined, {
-            path: view.controller.path(),
-            pageTitle: view.controller.pageTitle,
+            path: view.controller.path ? view.controller.path() : undefined,
+            pageTitle: view.controller.pageTitle || undefined,
             secondsWatched: secondsWatched,
             start: view.start,
             stop: stop
